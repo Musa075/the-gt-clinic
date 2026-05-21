@@ -18,8 +18,8 @@ export default function AestheticShowcase() {
       results: "Visible improvement in texture in 2 weeks; progressive collagen remodeling over 6 months."
     },
     lips: {
-      before: "/images/gallery-lips-before.png",
-      after: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&q=80&w=600",
+      before: "/images/lips-before.png",
+      after: "/images/lips-after.png",
       title: "Hyaluronic Acid Volumization",
       desc: "Subtle volume restoration and contour balancing of the lips and midface, avoiding overfilling.",
       recovery: "1-2 days",
@@ -27,8 +27,8 @@ export default function AestheticShowcase() {
       results: "Immediate volume increase; swelling settles in 7-14 days. Lasts 9-12 months."
     },
     wrinkles: {
-      before: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&q=80&w=600",
-      after: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=600",
+      before: "/images/forehead-before.jpg",
+      after: "/images/forehead-after.png",
       title: "Neuromodulator Fine Line Smoothing",
       desc: "Soften dynamic expression creases on the forehead and crow's feet using precision injection patterns.",
       recovery: "0 hours",
