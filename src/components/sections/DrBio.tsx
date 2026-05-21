@@ -41,7 +41,7 @@ export default function DrBio() {
           <div className="lg:col-span-5 relative">
             <div className="relative aspect-3/4 rounded-2xl overflow-hidden shadow-2xl border border-gold/25 group">
               <Image
-                src="/images/dr_farooqui_portrait.png"
+                src="/images/dr_farooqui_portrait_v2.png"
                 alt="Dr. Ghazala Farooqui, MD"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"

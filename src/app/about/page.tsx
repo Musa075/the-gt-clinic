@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="lg:col-span-5 relative">
             <div className="aspect-[4/5] relative rounded-3xl overflow-hidden shadow-2xl border border-gold/15 group">
               <Image
-                src="/images/dr_farooqui_portrait.png"
+                src="/images/dr_farooqui_portrait_v2.png"
                 alt="Dr. Ghazala Farooqui, MD"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
@@ -182,6 +182,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
               alt="Luxury clinical room"
               fill
+              sizes="(max-width: 1024px) 100vw, 800px"
               className="object-cover"
             />
           </div>

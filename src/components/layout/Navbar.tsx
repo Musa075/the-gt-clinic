@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Phone, Calendar } from "lucide-react";
@@ -99,13 +100,25 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex flex-col">
-            <span className="font-serif text-xl sm:text-2xl font-semibold tracking-wider text-primary-dark uppercase">
-              GT Clinic
-            </span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-gold font-sans font-medium -mt-0.5">
-              Aesthetics & Functional Med
-            </span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 flex-shrink-0">
+              <Image
+                src="/images/logo.png"
+                alt="GT Aesthetic & Functional Medicine Logo"
+                fill
+                className="object-contain transition-transform duration-500 group-hover:scale-105"
+                sizes="48px"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-primary-dark uppercase transition-colors duration-300 group-hover:text-gold leading-tight">
+                GT Clinic
+              </span>
+              <span className="text-[8px] sm:text-[9px] uppercase tracking-[0.2em] text-gold font-sans font-bold -mt-0.5">
+                Aesthetics & Functional Med
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

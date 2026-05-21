@@ -9,8 +9,8 @@ export default function AestheticShowcase() {
 
   const galleryItems = {
     skin: {
-      before: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600",
-      after: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=600",
+      before: "/images/gallery-skin-before.png",
+      after: "/images/gallery-skin-after.png",
       title: "Skin Resurfacing & Collagen induction",
       desc: "Treatment of uneven texture, scarring, and hyperpigmentation through physician-guided microneedling & exosomes.",
       recovery: "24-48 hours",
@@ -18,8 +18,8 @@ export default function AestheticShowcase() {
       results: "Visible improvement in texture in 2 weeks; progressive collagen remodeling over 6 months."
     },
     lips: {
-      before: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&q=80&w=600",
-      after: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=600",
+      before: "/images/gallery-lips-before.png",
+      after: "https://images.unsplash.com/photo-1619451334792-150fd785ee74?auto=format&fit=crop&q=80&w=600",
       title: "Hyaluronic Acid Volumization",
       desc: "Subtle volume restoration and contour balancing of the lips and midface, avoiding overfilling.",
       recovery: "1-2 days",
@@ -27,8 +27,8 @@ export default function AestheticShowcase() {
       results: "Immediate volume increase; swelling settles in 7-14 days. Lasts 9-12 months."
     },
     wrinkles: {
-      before: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600",
-      after: "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&q=80&w=600",
+      before: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&q=80&w=600",
+      after: "https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&q=80&w=600",
       title: "Neuromodulator Fine Line Smoothing",
       desc: "Soften dynamic expression creases on the forehead and crow's feet using precision injection patterns.",
       recovery: "0 hours",

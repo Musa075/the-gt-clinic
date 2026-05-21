@@ -79,6 +79,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 src={post.author.avatar}
                 alt={post.author.name}
                 fill
+                sizes="40px"
                 className="object-cover"
               />
             </div>
@@ -95,6 +96,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             src={post.image}
             alt={post.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 800px"
             className="object-cover"
             priority
           />

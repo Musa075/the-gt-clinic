@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, Clock, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
@@ -28,13 +29,24 @@ export default function Footer() {
           
           {/* Column 1: Brand & Bio */}
           <div className="space-y-6">
-            <Link href="/" className="inline-block">
-              <span className="font-serif text-2xl font-bold tracking-wider text-primary-light uppercase">
-                GT Clinic
-              </span>
-              <span className="block text-[9px] uppercase tracking-[0.25em] text-gold font-sans font-medium -mt-0.5">
-                Aesthetics & Functional Med
-              </span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-12 h-12 flex-shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="GT Aesthetic & Functional Medicine Logo"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="48px"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-xl font-bold tracking-wider text-primary-light uppercase transition-colors duration-300 group-hover:text-gold leading-tight">
+                  GT Clinic
+                </span>
+                <span className="block text-[9px] uppercase tracking-[0.25em] text-gold font-sans font-medium -mt-0.5">
+                  Aesthetics & Functional Med
+                </span>
+              </div>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed max-w-sm">
               Physician-led, science-backed wellness destination in Marlton, New Jersey. Specializing in regenerative aesthetics, root-cause functional medicine, and personalized longevity.

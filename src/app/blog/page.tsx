@@ -114,7 +114,13 @@ export default function BlogPage() {
                   {/* Author micro profile */}
                   <div className="flex items-center gap-2">
                     <div className="relative w-8 h-8 rounded-full overflow-hidden border border-gold/20">
-                      <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
+                      <Image
+                        src={post.author.avatar}
+                        alt={post.author.name}
+                        fill
+                        sizes="32px"
+                        className="object-cover"
+                      />
                     </div>
                     <span className="text-[10px] font-semibold text-primary-dark">{post.author.name.split(",")[0]}</span>
                   </div>

@@ -44,7 +44,7 @@ export default function TestimonialsPage() {
       "@context": "https://schema.org",
       "@type": "MedicalClinic",
       "name": "GT Aesthetic & Functional Medicine",
-      "image": "https://thegtclinic.com/images/dr_farooqui_portrait.png",
+      "image": "https://thegtclinic.com/images/dr_farooqui_portrait_v2.png",
       "@id": "https://thegtclinic.com/#clinic",
       "url": "https://thegtclinic.com",
       "telephone": "+18568864506",
