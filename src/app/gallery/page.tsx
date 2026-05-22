@@ -104,7 +104,7 @@ export default function GalleryPage() {
               >
                 {/* Interactive Drag Slider */}
                 <div className="relative">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-primary-dark/90 text-gold text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-gold/30 backdrop-blur-sm shadow-lg whitespace-nowrap">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-30 bg-primary-dark/90 text-gold text-[10px] uppercase tracking-widest font-bold px-4 py-1.5 rounded-full border border-gold/30 backdrop-blur-sm shadow-lg whitespace-nowrap">
                     ⟵ Drag to Compare ⟶
                   </div>
                   <BeforeAfterSlider

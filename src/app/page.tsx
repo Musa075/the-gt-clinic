@@ -2,6 +2,7 @@ import Hero from "@/components/sections/Hero";
 import TrustBar from "@/components/sections/TrustBar";
 import ServicesGrid from "@/components/sections/ServicesGrid";
 import DrBio from "@/components/sections/DrBio";
+import WhyChoose from "@/components/sections/WhyChoose";
 import FunctionalIntro from "@/components/sections/FunctionalIntro";
 import AestheticShowcase from "@/components/sections/AestheticShowcase";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
@@ -23,20 +24,24 @@ export default function Home() {
       {/* 4. Meet Dr. Farooqui (Biography / Personal Brand) */}
       <DrBio />
 
-      {/* 5. Functional Medicine Section */}
+      {/* 5. Why Choose GT Clinic */}
+      <WhyChoose />
+
+      {/* 6. Functional Medicine Section */}
       <FunctionalIntro />
 
-      {/* 6. Aesthetic Treatments Showcase (Before/After comparison) */}
+      {/* 7. Aesthetic Treatments Showcase (Before/After comparison) */}
       <AestheticShowcase />
 
-      {/* 7. Patient Testimonials */}
+      {/* 8. Patient Testimonials */}
       <TestimonialsSection />
 
-      {/* 8. Consultation CTA Banner */}
+      {/* 9. Consultation CTA Banner */}
       <CtaBanner />
 
-      {/* 9. FAQ Preview Accordions (includes FAQ Schema) */}
+      {/* 10. FAQ Preview Accordions (includes FAQ Schema) */}
       <FaqAccordionSection />
     </div>
   );
 }
+

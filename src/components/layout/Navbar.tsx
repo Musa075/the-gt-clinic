@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Phone, Calendar } from "lucide-react";
+import { Menu, X, ChevronDown, Phone, Calendar, Sparkles, ShieldCheck, Activity, ChevronRight } from "lucide-react";
 
 interface MenuItem {
   name: string;
@@ -51,11 +51,16 @@ export default function Navbar() {
       name: "Services",
       href: "/services",
       submenu: [
-        { name: "Aesthetic Treatments", href: "/services?tab=aesthetics" },
-        { name: "Functional Medicine", href: "/services?tab=functional" },
-        { name: "Regenerative Therapies", href: "/services?tab=regenerative" },
-        { name: "Hair Restoration", href: "/services/hair-restoration" },
-        { name: "Botox & Fillers", href: "/services/botox-wrinkle-relaxers" }
+        { name: "Botox & Wrinkle Relaxers", href: "/services/botox-marlton-nj" },
+        { name: "Dermal Fillers", href: "/services/dermal-fillers" },
+        { name: "Medical Microneedling", href: "/services/microneedling-south-jersey" },
+        { name: "Laser Rejuvenation", href: "/services/skin-rejuvenation" },
+        { name: "Hair Restoration", href: "/services/hair-restoration-marlton-nj" },
+        { name: "Collagen Stimulators", href: "/services/collagen-stimulation" },
+        { name: "Exosomes & PRP", href: "/services/anti-aging-clinic-marlton-nj" },
+        { name: "Functional Medicine", href: "/services/functional-medicine-marlton-nj" },
+        { name: "Bioidentical Hormones", href: "/services/hormone-optimization" },
+        { name: "Weight Optimization", href: "/services/weight-optimization" }
       ]
     },
     { name: "Gallery", href: "/gallery" },
@@ -98,7 +103,7 @@ export default function Navbar() {
             : "bg-primary-light py-5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-12 h-12 flex-shrink-0">
@@ -126,7 +131,7 @@ export default function Navbar() {
             {menuItems.map((item) => (
               <div
                 key={item.name}
-                className="relative"
+                className={item.name === "Services" ? "static" : "relative"}
                 onMouseEnter={() => item.submenu && setActiveDropdown(item.name)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
@@ -151,21 +156,189 @@ export default function Navbar() {
                 )}
 
                 {/* Submenu Dropdown */}
-                {item.submenu && activeDropdown === item.name && (
-                  <div className="absolute left-0 top-full pt-2 w-56 z-50">
-                    <div className="bg-primary-light shadow-xl border border-beige rounded-xl overflow-hidden py-2 backdrop-blur-md">
-                      {item.submenu.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          className="block px-4 py-2.5 text-xs uppercase tracking-wider font-medium text-primary-dark hover:bg-beige hover:text-gold transition-colors duration-200"
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <AnimatePresence>
+                  {item.submenu && activeDropdown === item.name && (
+                    item.name === "Services" ? (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 10 }}
+                        transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] as const }}
+                        className="absolute left-0 right-0 top-full pt-4 w-full z-50 pointer-events-auto"
+                      >
+                        <div className="bg-primary-light border border-gold/15 shadow-2xl rounded-2xl overflow-hidden backdrop-blur-md text-left">
+                          {/* Main content grid */}
+                          <div className="grid grid-cols-12 gap-8 p-8">
+                            {/* Column 1 */}
+                            <div className="col-span-3">
+                              <div className="flex items-center gap-2 pb-3 mb-4 border-b border-beige/60">
+                                <Sparkles size={16} className="text-gold shrink-0" />
+                                <span className="font-serif text-xs font-bold tracking-wide text-primary-dark uppercase">
+                                  Aesthetic Artistry
+                                </span>
+                              </div>
+                              <div className="flex flex-col gap-2.5">
+                                <Link
+                                  href="/services/botox-marlton-nj"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Botox & Wrinkles</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/dermal-fillers"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Dermal Fillers</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/microneedling-south-jersey"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Medical Microneedling</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/skin-rejuvenation"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Laser Rejuvenation</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                              </div>
+                            </div>
+
+                            {/* Column 2 */}
+                            <div className="col-span-3">
+                              <div className="flex items-center gap-2 pb-3 mb-4 border-b border-beige/60">
+                                <ShieldCheck size={16} className="text-gold shrink-0" />
+                                <span className="font-serif text-xs font-bold tracking-wide text-primary-dark uppercase">
+                                  Regenerative Care
+                                </span>
+                              </div>
+                              <div className="flex flex-col gap-2.5">
+                                <Link
+                                  href="/services/hair-restoration-marlton-nj"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Hair Restoration</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/collagen-stimulation"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Collagen Stimulators</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/anti-aging-clinic-marlton-nj"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Exosomes & PRP</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                              </div>
+                            </div>
+
+                            {/* Column 3 */}
+                            <div className="col-span-3">
+                              <div className="flex items-center gap-2 pb-3 mb-4 border-b border-beige/60">
+                                <Activity size={16} className="text-gold shrink-0" />
+                                <span className="font-serif text-xs font-bold tracking-wide text-primary-dark uppercase">
+                                  Functional Wellness
+                                </span>
+                              </div>
+                              <div className="flex flex-col gap-2.5">
+                                <Link
+                                  href="/services/functional-medicine-marlton-nj"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Functional Medicine</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/hormone-optimization"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Bioidentical Hormones</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                                <Link
+                                  href="/services/weight-optimization"
+                                  className="group/item flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-slate hover:text-gold transition-colors duration-300 py-1"
+                                >
+                                  <span>Weight Optimization</span>
+                                  <ChevronRight size={12} className="opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300 text-gold" />
+                                </Link>
+                              </div>
+                            </div>
+
+                            {/* Column 4: Signature Promo Card */}
+                            <div className="col-span-3">
+                              <div className="bg-gradient-to-b from-white to-[#FAF7F2] p-5 rounded-2xl border border-beige flex flex-col justify-between h-full relative overflow-hidden group/card shadow-sm hover:shadow-md transition-all duration-300">
+                                <div>
+                                  <span className="bg-gold/10 text-gold-dark text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit">
+                                    Signature Offer
+                                  </span>
+                                  <h4 className="font-serif text-sm font-bold text-primary-dark mt-3 mb-1.5 leading-tight">
+                                    Bespoke Consultation
+                                  </h4>
+                                  <p className="text-[10px] text-slate/80 leading-relaxed font-sans">
+                                    Discuss your skin concerns, metabolic health, or anti-aging goals in a private consultation with Dr. Farooqui.
+                                  </p>
+                                </div>
+                                <Link
+                                  href="/contact"
+                                  className="mt-4 flex items-center justify-center gap-2 bg-primary-dark hover:bg-gold text-primary-light hover:text-primary-dark font-sans text-[10px] font-bold tracking-widest uppercase py-3 px-4 rounded-full transition-all duration-300 border border-primary-dark hover:border-gold w-full text-center"
+                                >
+                                  <span>Book Consult</span>
+                                  <ChevronRight size={12} className="group-hover/card:translate-x-1 transition-transform duration-300" />
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Footer bar */}
+                          <div className="bg-beige/30 px-8 py-4 border-t border-beige flex justify-between items-center text-xs font-sans text-slate/85">
+                            <div className="flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                              <span>Physician-led aesthetics & root-cause functional medicine.</span>
+                            </div>
+                            <Link
+                              href="/services"
+                              className="flex items-center gap-1 font-bold text-[10px] uppercase tracking-wider text-primary-dark hover:text-gold transition-colors duration-300"
+                            >
+                              <span>Explore All Services</span>
+                              <ChevronRight size={12} />
+                            </Link>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        className="absolute left-0 top-full pt-2 w-56 z-50 pointer-events-auto"
+                      >
+                        <div className="bg-primary-light shadow-xl border border-beige rounded-xl overflow-hidden py-2 backdrop-blur-md text-left">
+                          {item.submenu.map((sub) => (
+                            <Link
+                              key={sub.name}
+                              href={sub.href}
+                              className="block px-4 py-2.5 text-xs uppercase tracking-wider font-medium text-primary-dark hover:bg-beige hover:text-gold transition-colors duration-200"
+                            >
+                              {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )
+                  )}
+                </AnimatePresence>
               </div>
             ))}
           </nav>

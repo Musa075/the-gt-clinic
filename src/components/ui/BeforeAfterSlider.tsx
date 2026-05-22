@@ -61,12 +61,22 @@ export default function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className={`relative select-none overflow-hidden rounded-2xl border border-gold/25 shadow-xl aspect-4/3 cursor-ew-resize ${className}`}
+      className={`relative select-none overflow-hidden rounded-3xl border-2 border-gold/20 shadow-2xl aspect-4/3 cursor-ew-resize transition-luxury hover:border-gold/45 ${className}`}
       onMouseDown={() => setIsDragging(true)}
       onTouchStart={() => setIsDragging(true)}
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
     >
+      {/* Actual Patient Results Label */}
+      <div className="absolute top-5 left-5 z-20 bg-primary-dark/95 text-gold text-[9px] uppercase tracking-[0.2em] font-extrabold py-2 px-4 rounded-full border border-gold/30 backdrop-blur-md shadow-md pointer-events-none">
+        Actual Patient Results
+      </div>
+
+      {/* Drag Help Overlay */}
+      <div className="absolute top-5 right-5 z-20 bg-black/60 backdrop-blur-sm text-white/85 text-[8px] uppercase tracking-[0.25em] px-3 py-2 rounded-full border border-white/10 pointer-events-none opacity-90 transition-opacity duration-300">
+        Drag Center to Compare
+      </div>
+
       {/* After Image (Full Base) */}
       <div className="absolute inset-0 w-full h-full">
         <Image
@@ -77,14 +87,14 @@ export default function BeforeAfterSlider({
           className="object-cover"
           priority
         />
-        <div className="absolute bottom-4 right-4 bg-primary-dark/80 text-gold text-xs uppercase tracking-wider font-semibold py-1.5 px-3.5 rounded-full backdrop-blur-sm border border-gold/25">
+        <div className="absolute bottom-5 right-5 z-20 bg-primary-dark/90 text-gold text-[10px] uppercase tracking-[0.2em] font-bold py-2 px-4 rounded-full backdrop-blur-md border border-gold/30 shadow-md">
           {afterLabel}
         </div>
       </div>
 
       {/* Before Image (Overlay clipped by slider width) */}
       <div
-        className="absolute inset-0 w-full h-full overflow-hidden"
+        className="absolute inset-0 w-full h-full overflow-hidden z-10"
         style={{ clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` }}
       >
         <Image
@@ -95,27 +105,25 @@ export default function BeforeAfterSlider({
           className="object-cover"
           priority
         />
-        <div className="absolute bottom-4 left-4 bg-primary-light/85 text-primary-dark text-xs uppercase tracking-wider font-semibold py-1.5 px-3.5 rounded-full backdrop-blur-sm border border-beige">
+        <div className="absolute bottom-5 left-5 z-20 bg-white/90 text-primary-dark text-[10px] uppercase tracking-[0.2em] font-bold py-2 px-4 rounded-full backdrop-blur-md border border-beige shadow-md">
           {beforeLabel}
         </div>
       </div>
 
       {/* Divider Line */}
       <div
-        className="absolute top-0 bottom-0 w-1 bg-gold-gradient cursor-ew-resize"
+        className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold via-gold/85 to-gold-dark cursor-ew-resize z-20"
         style={{ left: `${sliderPosition}%` }}
       >
         {/* Handle Button */}
-        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary-light border-2 border-gold flex items-center justify-center shadow-2xl glass-card transition-transform duration-200 hover:scale-110 active:scale-95">
+        <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-white border border-gold/30 flex items-center justify-center shadow-[0_4px_25px_rgba(0,0,0,0.18)] backdrop-blur-md transition-transform duration-200 hover:scale-110 active:scale-95 cursor-ew-resize">
+          {/* Animated pulse ring */}
+          <div className="absolute inset-0.5 rounded-full border border-gold/25 animate-pulse" />
           <div className="flex gap-1 items-center justify-center">
-            <span className="block w-1.5 h-3 border-l-2 border-r-2 border-gold-dark/60"></span>
+            <span className="block w-[3px] h-3 bg-gold-dark rounded-full"></span>
+            <span className="block w-[3px] h-3 bg-gold-dark rounded-full"></span>
           </div>
         </div>
-      </div>
-
-      {/* Touch Help overlay (subtle micro-instruction) */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/40 text-white/80 text-[10px] uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm border border-white/5 opacity-0 hover:opacity-100 transition-opacity duration-300">
-        Drag slider to compare
       </div>
     </div>
   );

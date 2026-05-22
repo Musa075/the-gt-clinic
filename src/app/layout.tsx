@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import FloatingCta from "@/components/ui/FloatingCta";
+import { Phone, Calendar } from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({
@@ -59,22 +61,28 @@ export default function RootLayout({
         {/* Footer */}
         <Footer />
 
-        {/* Sticky Mobile CTA Bar */}
-        <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-primary-dark border-t border-gold/20 flex divide-x divide-white/10">
+        {/* Desktop Floating Consultation CTA */}
+        <FloatingCta />
+
+        {/* Floating Mobile CTA Bar */}
+        <div className="sm:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-xs z-40 bg-primary-dark/90 backdrop-blur-lg rounded-full border border-gold/30 flex items-center justify-between p-1.5 shadow-[0_10px_35px_rgba(0,0,0,0.4)]">
           <a
             href="tel:+18568864506"
-            className="flex-1 py-4 text-center font-sans text-[10px] uppercase tracking-widest font-bold text-gold hover:bg-white/5 transition-colors"
+            className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full font-sans text-[10px] uppercase tracking-widest font-bold text-gold hover:bg-white/5 transition-all duration-300"
           >
-            Call Clinic
+            <Phone size={12} />
+            <span>Call</span>
           </a>
           <a
             href="/contact"
-            className="flex-1 py-4 text-center font-sans text-[10px] uppercase tracking-widest font-bold text-white bg-gold/20 hover:bg-gold/30 transition-colors"
+            className="flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full font-sans text-[10px] uppercase tracking-widest font-extrabold text-primary-dark bg-gold hover:bg-gold/90 transition-all duration-300 shadow-md shadow-gold/10"
           >
-            Book Consultation
+            <Calendar size={12} />
+            <span>Book Now</span>
           </a>
         </div>
       </body>
     </html>
   );
 }
+

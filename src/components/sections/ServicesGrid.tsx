@@ -76,25 +76,29 @@ export default function ServicesGrid() {
           initial="hidden"
           animate="show"
           key={filter}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
         >
           {filteredServices.map((service: Service) => (
             <motion.div
               key={service.slug}
               variants={itemVariants}
-              className="bg-white rounded-2xl overflow-hidden border border-gold/10 hover:border-gold/30 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col group"
+              whileHover="hover"
+              className="bg-white rounded-3xl overflow-hidden border-gold-glow shadow-sm hover:shadow-[0_20px_50px_rgba(200,169,107,0.12)] transition-luxury flex flex-col group relative"
             >
               {/* Image Container */}
-              <div className="relative h-64 w-full overflow-hidden shrink-0">
+              <div className="relative h-72 w-full overflow-hidden shrink-0">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover transition-transform duration-[1200ms] cubic-bezier(0.25, 1, 0.5, 1) group-hover:scale-[1.04]"
                 />
+                {/* Visual shade overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/20 to-transparent opacity-60 pointer-events-none" />
+                
                 {/* Category Pill overlay */}
-                <div className="absolute top-4 left-4 bg-primary-dark/80 backdrop-blur-sm text-gold text-[10px] uppercase tracking-widest font-semibold py-1.5 px-3.5 rounded-full border border-gold/25">
+                <div className="absolute top-5 left-5 bg-primary-dark/90 backdrop-blur-md text-gold text-[9px] uppercase tracking-[0.2em] font-bold py-2 px-4 rounded-full border border-gold/35 shadow-lg">
                   {service.category === 'aesthetics' && "Aesthetic Medicine"}
                   {service.category === 'functional' && "Functional Medicine"}
                   {service.category === 'regenerative' && "Regenerative Aesthetics"}
@@ -102,9 +106,9 @@ export default function ServicesGrid() {
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between space-y-6">
-                <div className="space-y-3">
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-primary-dark group-hover:text-gold transition-colors duration-300">
+              <div className="p-8 sm:p-10 flex-grow flex flex-col justify-between space-y-8">
+                <div className="space-y-4">
+                  <h3 className="font-serif text-2xl font-bold text-primary-dark group-hover:text-gold transition-colors duration-300 leading-snug">
                     {service.title}
                   </h3>
                   <p className="text-slate text-sm leading-relaxed line-clamp-3">
@@ -113,8 +117,8 @@ export default function ServicesGrid() {
                 </div>
 
                 {/* Micro details bar */}
-                <div className="border-t border-beige pt-4 flex justify-between items-center text-[10px] uppercase tracking-wider text-slate font-medium">
-                  <span className="flex items-center gap-1">
+                <div className="border-t border-beige pt-5 flex justify-between items-center text-[10px] uppercase tracking-[0.2em] text-slate/75 font-semibold">
+                  <span className="flex items-center gap-1.5">
                     <Clock size={12} className="text-gold" />
                     {service.duration}
                   </span>
@@ -123,13 +127,22 @@ export default function ServicesGrid() {
                 </div>
 
                 {/* Learn More link */}
-                <div className="pt-2">
+                <div className="pt-2 border-t border-beige/40">
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-bold text-primary-dark hover:text-gold transition-colors duration-300 cursor-pointer"
+                    className="inline-flex items-center gap-2.5 text-xs uppercase tracking-[0.18em] font-bold text-primary-dark hover:text-gold transition-colors duration-300 cursor-pointer"
                   >
-                    Learn More
-                    <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+                    <span>Explore Treatment</span>
+                    <motion.span
+                      variants={{
+                        initial: { x: 0 },
+                        hover: { x: 6 }
+                      }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                      className="inline-block"
+                    >
+                      <ChevronRight size={14} className="text-gold" />
+                    </motion.span>
                   </Link>
                 </div>
               </div>
